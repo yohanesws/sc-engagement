@@ -1,0 +1,9 @@
+@Library('StandardLibrary@feature/RDC-21763') _
+  
+rdcBuild {
+    build_type    = 'Docker only'
+    build_group   = 'NFS'
+    no_sonarqube  = true
+    docker_base_image = true
+    image_version   = '0.0.3'
+}

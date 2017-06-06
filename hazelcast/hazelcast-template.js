@@ -69,7 +69,6 @@
 		},
 		"spec": {
 			"type": "NodePort",
-			"clusterIP": "None",
 			"selector": {
 				"name": "hazelcast-node-${DEPLOYMENT_NAME}"
 			},

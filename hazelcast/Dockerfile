@@ -35,7 +35,18 @@ RUN mkdir -p /tmp/scripts
 # Add scripts used to configure the image
 COPY scripts /tmp/scripts
 
-COPY source/hazelcast-3.8.1.tar.gz /tmp/scripts
+# COPY source/hazelcast-3.8.1.tar.gz /tmp/scripts
+
+# RUN mkdir -p $HAZELCAST_HOME && \
+#   tar -zxvf /tmp/scripts/hazelcast-3.8.1.tar.gz -C $HAZELCAST_HOME --strip 1 && \
+#   rm -rf  $HAZELCAST_HOME/code-samples &&\
+#   rm -rf  $HAZELCAST_HOME/demo &&\
+#   rm -rf  $HAZELCAST_HOME/docs &&\
+#   rm -rf $HAZELCAST_HOME/bin/hazelcast-full-example.xml &&\
+#   rm -rf $HAZELCAST_HOME/bin/._* &&\
+#   rm -rf $HAZELCAST_HOME/lib/._*
+
+RUN curl -vjkL http://10.20.234.23:8081/nexus/content/repositories/nfsreleases/com/sc/rdc/nfs/nfs-glbl-lib-hazelcast/0.0.1-GA/nfs-glbl-lib-hazelcast-0.0.1-GA.zip> /tmp/scripts/hazelcast-3.8.1.tar.gz
 
 RUN mkdir -p $HAZELCAST_HOME && \
   tar -zxvf /tmp/scripts/hazelcast-3.8.1.tar.gz -C $HAZELCAST_HOME --strip 1 && \
@@ -48,7 +59,7 @@ RUN mkdir -p $HAZELCAST_HOME && \
 
 RUN mkdir -p $HAZELCAST_HOME/ext/
 
-COPY source/ext/*.jar $HAZELCAST_HOME/ext/
+# COPY source/ext/*.jar $HAZELCAST_HOME/ext/
 
 #RUN mkdir -p $HAZELCAST_HOME && curl -jksSL  "http://download.hazelcast.com/download.#jsp?version=hazelcast-3.8.1&type=tar&p="  \
 #  | tar -zxvf - -C $HAZELCAST_HOME --strip 1 &&\

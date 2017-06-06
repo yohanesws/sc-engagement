@@ -1,7 +1,7 @@
-docker run -ti --rm -e HZ_GROUP_NAME=dev -e HZ_GROUP_PASSWORD=dev-password -e HZ_MEMBERS=192.168.166.39:5700,192.168.166.39:5701 -e HZ_PUBLIC_ADDRESS=192.168.166.39:5701 -e JAVA_OPTS=-Dhazelcast.socket.client.bind.any=true -p 5701:5701 scb-hazelcast-tryout:1.0
+docker run -ti --rm -e HZ_GROUP_NAME=dev -e HZ_GROUP_PASSWORD=dev-password -e HZ_MEMBERS=10.65.8.225:5700,10.65.8.225:5701 -e HZ_PUBLIC_ADDRESS=10.65.8.225:5701 -e JAVA_OPTS=-Dhazelcast.socket.client.bind.any=true -p 5701:5701 scb-hazelcast-tryout:1.0
 
 
-docker run -ti --rm -e HZ_GROUP_NAME=dev -e HZ_GROUP_PASSWORD=dev-password -e HZ_MEMBERS=192.168.166.39:5700,192.168.166.39:5701 -e HZ_PUBLIC_ADDRESS=192.168.166.39:5702 -e JAVA_OPTS=-Dhazelcast.socket.client.bind.any=true -p 5702:5701 scb-hazelcast-tryout:1.0
+docker run -ti --rm -e HZ_GROUP_NAME=dev -e HZ_GROUP_PASSWORD=dev-password -e HZ_MEMBERS=10.65.8.225:5700,10.65.8.225:5701 -e HZ_PUBLIC_ADDRESS=10.65.8.225:5702 -e JAVA_OPTS=-Dhazelcast.socket.client.bind.any=true -p 5702:5701 scb-hazelcast-tryout:1.0
 
 docker run -ti --rm -e HZ_GROUP_NAME=dev -e HZ_GROUP_PASSWORD=dev-password -e HZ_MEMBERS=192.168.166.39:5700,192.168.166.39:5701 -e HZ_PUBLIC_ADDRESS=192.168.166.39:5701 -e JAVA_OPTS=-Dhazelcast.socket.client.bind.any=true -e HAZELCAST_KUBERNETES_SERVICE_NAME=scb-hazelcast -e HAZELCAST_KUBERNETES_NAMESPACE=hazelcast -p 5701:5701 scb-hazelcast-tryout:1.0
 
@@ -22,3 +22,9 @@ oc new-build scb-hazelcast --from-dir=. --follow
 oc new-app scb-hazelcast -e HZ_GROUP_NAME=dev -e HZ_GROUP_PASSWORD=dev-password -e JAVA_OPTS=-Dhazelcast.socket.client.bind.any=true -e HAZELCAST_KUBERNETES_SERVICE_NAME=scb-hazelcast -e HAZELCAST_KUBERNETES_NAMESPACE=hazelcast
 
 --172.30.171.152
+
+docker run -ti --rm -e HZ_GROUP_NAME=dev -e HZ_GROUP_PASSWORD=dev-password -e HZ_MEMBERS=10.1.2.4:31340 -e HZ_PUBLIC_ADDRESS=10.1.2.1:5701 -e JAVA_OPTS=-Dhazelcast.socket.client.bind.any=true -p 5702:5701 scb-hazelcast-tryout:1.0
+
+ 10.23.216.100
+docker run -dp 32080:8080 --rm -e HZ_GROUP_NAME=dev -e HZ_GROUP_PASSWORD=dev-password  -e HZ_MEMBERS=10.65.8.225:5701 cluster-war:latest
+docker run -itp 32081:8080 --rm -e HZ_GROUP_NAME=dev -e HZ_GROUP_PASSWORD=dev-password  -e HZ_MEMBERS=10.65.8.225:5701 cluster-war:latest

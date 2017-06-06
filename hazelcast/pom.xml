@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project 
+	xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.scb.glbl.docker</groupId>
+	<artifactId>tomcat-ocp</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<name>SCB Tomcat OCP</name>
+	<description>SCB Tomcat 8 Openshift</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+        		<artifactId>docker-maven-plugin</artifactId>
+        		<version>0.17.1</version>
+        		<configuration>
+        			<images>
+        				<image>
+        					<name>uklvaddcd05a.uk.standardchartered.com:5000/scb-glbl-docker-tomcat-ocp:1.0</name>
+				              <build>
+				                <dockerFileDir>${project.basedir}/</dockerFileDir>
+				              </build>
+        				</image>
+        			</images>
+        		</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!--
+  Default sample commands:
+  mvn -Pdocker-build         ... build Docker images
+  -->
+  
+	<profiles>
+	    <profile>
+	      <id>docker-build</id>
+	      <build>
+	        <defaultGoal>clean install docker:build</defaultGoal>
+	      </build>
+	    </profile>
+	    
+	  </profiles>
+
+</project>

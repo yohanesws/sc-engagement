@@ -116,6 +116,8 @@ function expand_catalina_opts() {
       export MIN_HEAP_SIZE=$MAX_HEAP
       export MAX_HEAP_SIZE=$MAX_HEAP
     fi
+    # ls -ltr /opt
+    # ls -ltr $HAZELCAST_HOME
 }
 
 

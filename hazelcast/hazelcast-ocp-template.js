@@ -55,6 +55,9 @@
 						}, {
 							"name": "HZ_GROUP_PASSWORD",
 							"value": "${HZ_GROUP_PASSWORD}"
+						}, {
+							"name": "HAZELCAST_KUBERNETES_OTHER_MEMBER",
+							"value": "${OTHER_MEMBER}"
 						}],
 						"ports": [{
 							"containerPort": 5701,
@@ -93,17 +96,12 @@
 	}, {
 		"name": "IMAGE_PATH",
 		"description": "Image Name Full Path",
-		"value": "172.30.248.237:5000/hazelcast/scb-hazelcast-os",
+		"value": "172.30.248.237:5000/hazelcast/scb-hazelcast",
 		"required": true
 	}, {
 		"name": "IMAGE_NAME",
 		"description": "Image Name for Label.",
-		"value": "scb-hazelcast-os",
-		"required": true
-	}, {
-		"name": "IMAGE_VERSION",
-		"description": "Image Version.",
-		"value": "latest",
+		"value": "scb-hazelcast",
 		"required": true
 	}, {
 		"name": "IMAGE_VERSION",
@@ -133,5 +131,9 @@
 		"description": "Defines the domain part of a kubernetes dns lookup.",
 		"value": "cluster.local",
 		"required": true
+	}, {
+		"name": "OTHER_MEMBER",
+		"description": "Defines the domain part of a kubernetes dns lookup.",
+		"required": false
 	}]
 }
